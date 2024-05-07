@@ -71,7 +71,7 @@ class UserController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'role' => 'required',
-            //'password' => 'required',
+            //git 'password' => 'required',
         ]);
 
         $user = User::find($id);
