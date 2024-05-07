@@ -1,0 +1,7 @@
+1. create project 
+2. copy assets / template 
+3. intall library fortify 
+4. Config fortify dan tambahkan service fortify di config/app.php
+
+5. buat seeder users 
+6. buat controller users 
