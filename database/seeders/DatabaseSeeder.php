@@ -37,5 +37,7 @@ class DatabaseSeeder extends Seeder
             'doctor_name' => 'Dr Rian',
             'unique_code' => '12345678',
         ]);
+
+        $this->call(DoctorSeeder::class);
     }
 }

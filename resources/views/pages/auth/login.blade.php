@@ -22,7 +22,7 @@
                         value="{{ old('email') }}" name="email" tabindex="1" autofocus>
                     @error('email')
                         <div class="invalid-feedback">
-                            {{ $message }}
+                            {{ $message  }}
                         </div>
                     @enderror
 

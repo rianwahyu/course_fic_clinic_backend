@@ -30,8 +30,6 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //return view('pages.users.index');
-
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
