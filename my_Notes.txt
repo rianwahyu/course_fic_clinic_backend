@@ -5,3 +5,4 @@
 
 5. buat seeder users 
 6. buat controller users 
+7. untuk menambahkan kolom ke table yg sudah ada bisa dgn menggunakan make migration di command pallete 

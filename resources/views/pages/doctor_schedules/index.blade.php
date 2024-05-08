@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Doctors')
+@section('title', 'Doctor Schedules')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -11,9 +11,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Doctor</h1>
+                <h1>Doctor Schedule</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('doctors.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('doctor_schedules.create') }}" class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
@@ -37,12 +37,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Posts</h4>
+                                <h4>All Doctor Schedule</h4>
                             </div>
                             <div class="card-body">
 
                                 <div class="float-right">
-                                    <form method="GET" action="{{ route('doctors.index') }}">
+                                    <form method="GET" action="{{ route('doctor_schedules.index') }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="name">
                                             <div class="input-group-append">
@@ -59,44 +59,36 @@
                                         <tr>
 
                                             <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Specialist</th>
-                                            <th>Photo</th>
+                                            <th>Day</th>
+                                            <th>Time</th>
+                                            <th>Note</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach ($doctors as $doctor)
+                                        @foreach ($doctorSchedules as $sch)
                                             <tr>
 
-                                                <td>{{ $doctor->doctor_name }}
+                                                <td>
+                                                    {{ $sch->doctor->doctor_name }}
+                                                </td>
+                                                <td>{{ $sch->day }}
                                                 </td>
                                                 <td>
-                                                    {{ $doctor->doctor_email }}
+                                                    {{ $sch->time }}
                                                 </td>
                                                 <td>
-                                                    {{ $doctor->doctor_phone }}
-                                                </td>
-                                                <td>
-                                                    {{ $doctor->doctor_specialist }}
+                                                    {{ $sch->note }}
                                                 </td>
 
-                                                <td>
-                                                    @if ($doctor->photo)
-                                                        <img src="{{ asset('' . $doctor->photo) }}" width="100px"
-                                                            alt="" class="img-thumbnail">
-                                                    @else
-                                                        <span class="badge badge-danger">No Image</span>
-                                                    @endif
-                                                </td>
+
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('doctors.edit', $doctor->id) }}'
+                                                        <a href='{{ route('doctor_schedules.edit', $sch->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('doctors.destroy', $doctor->id) }}"
+                                                        <form action="{{ route('doctor_schedules.destroy', $sch->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
@@ -114,7 +106,7 @@
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                    {{ $doctors->withQueryString()->links() }}
+                                    {{ $doctorSchedules->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>

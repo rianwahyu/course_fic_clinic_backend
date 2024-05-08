@@ -38,6 +38,11 @@ class DatabaseSeeder extends Seeder
             'unique_code' => '12345678',
         ]);
 
-        $this->call(DoctorSeeder::class);
+        $this->call(
+            [
+                DoctorSeeder::class,
+                DoctorScheduleSeeder::class
+            ]
+        );
     }
 }
