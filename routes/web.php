@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorScheduleController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
 use App\Models\DoctorSchedule;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,8 @@ Route::get('/', function () {
     return view('pages.auth.login');
 });
 
-Route::middleware(['auth'])->group(function(){
-    Route::get('home', function (){
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
         return view('dashboard');
     })->name('home');
 
@@ -32,6 +33,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('doctors', DoctorController::class);
 
     Route::resource('doctor_schedules', DoctorScheduleController::class);
+
+    Route::resource('patients', PatientController::class);
 });
 
 // Route::get('/login', function () {

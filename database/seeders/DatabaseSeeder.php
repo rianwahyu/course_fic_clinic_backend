@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\User::factory()->create([
-            'name' => 'Admin User',
+            'name' => 'Admin User', 
             'email' => 'rianwahyu26@gmail.com',
             'role' => 'admin',
             'password' => Hash::make('12345678'),
@@ -41,7 +41,8 @@ class DatabaseSeeder extends Seeder
         $this->call(
             [
                 DoctorSeeder::class,
-                DoctorScheduleSeeder::class
+                DoctorScheduleSeeder::class,
+                PatientSeeder::class
             ]
         );
     }

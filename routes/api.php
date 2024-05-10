@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DoctorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//login
+Route::post('/login', [AuthController::class, 'login']);
+
+//logout
+Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+
+//doctors
+Route::apiResource('/api-doctors', DoctorController::class)->middleware('auth:sanctum');
