@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DoctorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\PatientController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,6 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 
 //doctors
 Route::apiResource('/api-doctors', DoctorController::class)->middleware('auth:sanctum');
+
+//patients
+Route::apiResource('/api-patients', PatientController::class)->middleware('auth:sanctum'); 
