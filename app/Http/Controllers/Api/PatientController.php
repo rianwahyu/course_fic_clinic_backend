@@ -21,7 +21,7 @@ class PatientController extends Controller
             ->get();
 
         return response([
-            'patients' => $patients,
+            'data' => $patients,
             'message' => 'success',
             'status' => 'OK'
         ], 200);
