@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\DoctorScheduleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\ServiceMedicineController;
 
 
 /*
@@ -37,3 +38,6 @@ Route::apiResource('/api-patients', PatientController::class)->middleware('auth:
 
 //doctor schedule
 Route::apiResource('/api-doctor-schedules', DoctorScheduleController::class)->middleware('auth:sanctum');
+
+//service medicines
+Route::apiResource('/api-service-medicines', ServiceMedicineController::class)->middleware('auth:sanctum');
