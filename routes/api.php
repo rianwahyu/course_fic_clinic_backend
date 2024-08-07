@@ -41,3 +41,5 @@ Route::apiResource('/api-doctor-schedules', DoctorScheduleController::class)->mi
 
 //service medicines
 Route::apiResource('/api-service-medicines', ServiceMedicineController::class)->middleware('auth:sanctum');
+
+
